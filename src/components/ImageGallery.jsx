@@ -15,8 +15,5 @@ export const ImageGallery = ({ photos, largePhotoFunction }) => {
         );
       })}
     </ul>
-
-    //   //   ))}
-    //   // </ul>
   );
 };

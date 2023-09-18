@@ -32,7 +32,6 @@ export const App = () => {
   const findLargePhotoInfo = largeImageURL => {
     setModalImage(largeImageURL);
     setShowModal(true);
-    document.addEventListener('keydown', closeModalEscape);
   };
 
   const closeModalEscape = event => {
@@ -42,7 +41,12 @@ export const App = () => {
     }
   };
 
-  document.removeEventListener('keydown', closeModalEscape);
+  useEffect(() => {
+    document.addEventListener('keydown', closeModalEscape)
+    return () => {
+      document.removeEventListener('keydown', closeModalEscape)
+    }
+  }, [])
 
   useEffect(() => {
     async function getQuaryPhotos() {
