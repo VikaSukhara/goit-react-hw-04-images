@@ -17,7 +17,6 @@ export const App = () => {
   const [modalImage, setModalImage] = useState('');
   const [totalHits, setTotalHits] = useState(0);
 
-
   const handlerSubmit = event => {
     event.preventDefault();
     setQuary(`${Date.now()}/${event.target.elements.quary.value}`);
@@ -40,13 +39,6 @@ export const App = () => {
       setModalImage(' ');
     }
   };
-
-  useEffect(() => {
-    document.addEventListener('keydown', closeModalEscape)
-    return () => {
-      document.removeEventListener('keydown', closeModalEscape)
-    }
-  }, [])
 
   useEffect(() => {
     async function getQuaryPhotos() {
